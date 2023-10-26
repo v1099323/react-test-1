@@ -9906,7 +9906,6 @@
         const Modal_MyModal = MyModal;
         const useSortedPosts = (posts, sort) => {
             const sortedPosts = (0, react.useMemo)((() => {
-                console.log("first");
                 if (sort) return [ ...posts ].sort(((a, b) => a[sort].localeCompare(b[sort])));
                 return posts;
             }), [ sort, posts ]);
