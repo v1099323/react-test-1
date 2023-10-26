@@ -11681,28 +11681,22 @@
         const AppRouter = () => {
             const {isAuth, isLoading} = (0, react.useContext)(AuthContext);
             if (isLoading) return react.createElement(Loader_Loader, null);
-            return react.createElement(esm_TransitionGroup, null, react.createElement(Routes, null, isAuth ? privateRoutes.map((route => react.createElement(Route, {
+            return react.createElement(Routes, null, isAuth ? privateRoutes.map((route => react.createElement(Route, {
                 key: route.component,
+                component: route.component,
                 path: route.path,
                 exact: route.exact,
-                element: react.createElement(esm_CSSTransition, {
-                    key: route.component,
-                    classNames: "fade",
-                    timeout: 500
-                }, react.createElement(route.component, null))
+                element: route.element
             }))) : publicRoutes.map((route => react.createElement(Route, {
                 key: route.component,
+                component: route.component,
                 path: route.path,
                 exact: route.exact,
-                element: react.createElement(esm_CSSTransition, {
-                    key: route.component,
-                    classNames: "fade",
-                    timeout: 500
-                }, react.createElement(route.component, null))
+                element: route.element
             }))), react.createElement(Route, {
                 path: "*",
                 element: react.createElement(pages_Error, null)
-            })));
+            }));
         };
         const components_AppRouter = AppRouter;
         function App() {
